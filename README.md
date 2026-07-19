@@ -1,29 +1,30 @@
-# V4 - DIY $125 Home Assistant bookshelf speaker with ESPHome SendSpin, Snapcast, AirPlay 2, Squeezelite for whole-home music and notifications.
+# V3 - DIY $90 Home Assistant bookshelf speaker with SendSpin or Squeezelite for multi-room music and notifications using off-the-shelf parts. 
+
+### Version 3. Quickly modify an off-the-shelf, compact, dual-driver passive speaker by adding an ESP32/DAC/AMP controller and existing open-source firmware (Squeezelite or ESPHome with SendSpin) for whole-home synchronized audio and TTS notifications using Music Assistant and Home Assistant.
+
+A lot of focus is often placed on syncing the same music in every room, but it's worthwhile mentioning Music Assistant also allows you to play different songs in different rooms.  Stream a chill playlist (synced) to your bedrooms, a house playlist to the family room and a radio station to your kitchen.
 
 
 
-### Quickly modify an off-the-shelf, dual-driver passive speaker using open-source hardware and pre-configured open-source firmware (ESPHome with SendSpin and many other options) for multi-room synchronized audio and TTS notifications using Music Assistant and Home Assistant. Automatically connects to Home Assistant at bootup. No coding, no cloud, no subscriptions, no integrations. 
-
-
-
-## Build or Buy ?
-
-**This project is very simple and fast to build.** 
-**But not everyone has the time or desire for a DIY project.**
-**If that's you, please check out the section below [Option to Purchase - Ready to Connect](#option-to-purchase---assembled-tested-ready-to-connect)**
-
-
-
-
-
-![Completed HouseWaves-Three passive speaker modified for streaming with ESPHome, SendSpin and Home Assistant — composite photo](images/housewaves-three-made-for-ESPHome-SendSpin-composite-photo.jpg)
-*Completed modification of a passive speaker for fast and easy streaming with ESPHome, SendSpin and Home Assistant.*
+![bookshelf_speaker_home_assistant_whole_home_audio_tts_notifications](images/bookshelf_speaker_home_assistant_whole_home_audio_tts_notifications.jpg)
+*Completed ESP32 modification of a passive bookshelf speaker for wireless multi-room audio with Home Assistant.*
 
 
 
 ## See and Hear it
 
-- [45 sec video demo on YouTube: two HW3s streaming music in sync](https://www.youtube.com/watch?v=vsdZfq3pha4) 
+- [35 sec video demo on Reddit - see this speaker (in the MIDDLE), between V2 and the white POC speakers](https://www.reddit.com/user/HouseWaves/comments/1s5jeez/demo_video_tease_starting_lineup_for_diy_home/) 
+
+  
+
+---
+
+## Build it - or Buy it
+
+I've made this project very simple and fast to build.
+
+But not everyone has the time or desire for a DIY project.
+If that's you, please check out an [Option to Purchase - Already Assembled](#option-to-purchase---already-assembled)
 
 
 
@@ -35,7 +36,7 @@
 
 - [Motivation](#motivation)
 
-- [Option to Purchase - Ready to Connect](#option-to-purchase---assembled-tested-ready-to-connect)
+- [Option to Purchase - Already Assembled](#option-to-purchase---already-assembled)
 
 - [Caveats & Limitations](#caveats--limitations)
 
@@ -49,7 +50,7 @@
 
 - [What's Next](#whats-next)
 
-- [Non-Commercial Use Only](#non-commercial-use-only)
+- [Non-Commercial Use Only](#non---commercial-use-only)
 
 - [Credits & References](#credits--references)
 
@@ -59,22 +60,19 @@
 
 ## What This Is 
 
-- A documented process to easily and quickly create your own Home Assistant speaker by modifying inexpensive, commercially available passive speakers.
-
-- A DIY guide to adding a really exceptional open-source ESP32-based controller from Sonocotta with integrated DAC, DSP and AMP with existing, open-source firmware to stream using SendSpin, Snapcast, Squeezelite or even AirPlay 2 protocols.<br/>In this guide, I will provide two options to flash with ESPHome/SendSpin and Squeezelite.
-
-- Provide Music Assistant users a viable alternative to purchasing Sonos, Wiim, Edifier, et. al. speakers to obtain satisfying multi-room synchronized audio without the specialized integrations, cloud services or complex customizations that are generally needed for streaming and/or TTS notifications.
-
+- A documented process to easily and quickly create your own inexpensive Home Assistant speaker - with really reasonable fidelity - using commercially available passive speakers into a Wi-Fi speaker for use with Home Assistant.
+- A DIY guide to adding an inexpensive, off-the-shelf ESP32-based controller with integrated DAC, DSP and AMP inside an existing speaker cabinet and flash with existing, open-source firmware to use Squeezelite, SendSpin, Snapcast or AirPlay streaming protocols.<br/>
+  **SendSpin can be used with the ESPHome firmware. I have been speaking and working with the SendSpin team to add configuration changes that significantly improve ESP32 performance using SendSpin. I will update this repo {est. May 2026} with details and instructions.**
+- Provide Music Assistant users a viable alternative to purchasing Sonos equipment to obtain satisfying whole-home, multi-room synchronized audio, streaming music and home automation notifications.
 - **Part of a planned series modifying a range of speakers at multiple price points and corresponding sound quality.**
   — see [What's Next](#whats-next) for planned future builds for high-fidelity, subwoofer and smart options.
-  
-  
+- An [option to purchase](#option-to-purchase---already-assembled) pre-assembled for those wanting a commercially available speaker. 
 
 **This is NOT:**
 
-- A project that requires wood working skills to build a speaker cabinet from scratch.  At most, you may need to drill a single hole - or have someone 3D print a small plate for you. There are companies that can print and ship you the part for approx $10.
+- A project that requires wood working skills to build a speaker cabinet from scratch.  At most, you may need to drill a single hole into a wood cabinet - or have someone 3D print a small plate for you. There are companies that can provide you with custom printed plastic or laser cut acrylic plates as well (approx $10)
 
-- A smart speaker. Stay tuned for a future build this year. <br/> For those of you following this series, I really appreciate your patience. The pace of growth I have experienced and the progression of ESPHome/SendSpin has been exciting. Now that SendSpin is very close to GA, the timing to create smart speakers is accelerating.
+- A smart speaker. Stay tuned for a future build this year. I am working to create smart speakers fully-compatible with Home Assistant Voice Preview.
 
   
 
@@ -86,44 +84,40 @@ There are no commercially available speakers specifically for use in the Home As
 
 I want to change that.
 
-***My first project***, really more of a proof-of-concept, started with a high end speaker kit. It was expensive.<br/>
-[DIY WiFi & BT audio speaker for Home Assistant, modify prebuilt 3D printed speaker](https://www.reddit.com/r/homeassistant/comments/1qw1gg6/diy_wifi_bt_audio_speaker_for_home_assistant/)
+***My first project***, really more of a proof-of-concept, started with a high end speaker kit. It was expensive.
+https://www.reddit.com/r/homeassistant/comments/1qw1gg6/diy_wifi_bt_audio_speaker_for_home_assistant/
 
 It sounded great!  But $250 / speaker was not what people wanted. 
 
-***My second project*** was a much lower cost version based on a commonly available single-driver speaker available on Amazon.<br/>A desktop-sized solution, with limited power and frequency range, but ideal for replicating in multiple rooms primarily for notifications and occasionally listening to music (or secondary rooms as part of a whole home, multi-room system).<br/>   [V2 - $60 DIY WiFi & BT audio speaker for Home Assistant, with ESP32 - Squeezelite or SendSpin : r/homeassistant](https://www.reddit.com/r/homeassistant/comments/1skggdr/v2_60_diy_wifi_bt_audio_speaker_for_home/)
+***My second project*** was a much lower cost version based on a commonly available single-driver speaker available on Amazon. [V2 - $60 DIY WiFi & BT audio speaker for Home Assistant, with ESP32 - Squeezelite or SendSpin : r/homeassistant](https://www.reddit.com/r/homeassistant/comments/1skggdr/v2_60_diy_wifi_bt_audio_speaker_for_home/)
 
-**My third project** was a dual-driver, compact bookshelf speaker capable of providing quality audio with 15W to adequately fill small rooms of your home in a cabinet slightly larger than a desktop speaker.  [V3 - $90 DIY Home Assistant bookshelf speaker for Home Assistant](https://www.reddit.com/r/musicassistant/comments/1t6ah47/v3_diy_90_home_assistant_bookshelf_speaker_for/)
+A very nice desktop-sized solution, albeit with limited power and frequency range, ideal for replicating in multiple rooms primarily for notifications and occasionally listening to music (or secondary rooms as part of a whole home, multi-room system).  
 
 -------
 
-***This is my fourth project (V4)*** 
+The following guide is to help you recreate the speaker from ***My third project (V3)*** 
 
-A larger dual-driver speaker capable of providing decent bass in a bookshelf form factor with significant amplification from 30W of power.  This is getting very close to a substitute for home audio systems. 
+A dual-driver, bookshelf speaker capable of providing quality audio in a compact form factor.  
 
-*Unlike the past projects, you will not need to remove a driver in the cabinet.  This speaker has a very large wire terminal plate that easily fits the ESP32 board in an RPi case. So the process is even easier than in the past.*
+15W of amplification to adequately fill most rooms of your home in a cabinet size slightly larger than the V2 desktop speaker.
 
-For clarification - we're still at the lower end of the audiophile spectrum. I'm nowhere near trying to make a claim this competes with high-end gear, but we're just getting warmed up...
+Quick and easy to integrate with firmware designed specifically for use with Home Assistant. 
+
+Although I still recommend Squeezelite until SendSpin is finalized, ESPHome with the SendSpin protocol is very capable with significant improvements even on an ESP32, thanks to suggestions from the SendSpin beta development team!
 
 
 
 ---
 
-## Option to Purchase - Assembled, Tested, Ready to Connect
+## Option to Purchase - Already Assembled
 
 My motivation is not completely altruistic.
 
-I've started a company - with a commitment to prioritize and provide DIY open-source audio options to Home Assistant enthusiasts.  These guides are part of that commitment.
+I've started a company, with a commitment to prioritize and provide DIY open-source audio options to Home Assistant enthusiasts.  
 
-For individuals who prefer to purchase a speaker fully assembled, tested and updated, well...that's the market I'd like to help with...I want to be the RATGDO for music enthusiasts looking for options that do not require subscriptions or proprietary applications. 
+For individuals who prefer to purchase a speaker fully assembled and tested, well...that's the market I'd like to help with...I want to be the RATGDO for music enthusiasts looking for options that do not require subscriptions or proprietary applications.
 
-Please check out my site, [GetHouseWaves.com](https://gethousewaves.com/)  to view available models - all using the same open-source controllers and firmware you'll find in my DIY guides.
-
-Whether you build it or buy it, your speakers will always be yours to do with as you please. 
-
-You will never be locked-in or bricked-out.
-
-![Finished HouseWaves bookshelf speaker, assembled and ready to connect to Home Assistant](images/new-hero-shot-2026-06-05.jpg)
+Please check out my site, [GetHouseWaves.com](https://gethousewaves.com/)  to view available models - all based on the same components you'll find in my DIY guides.
 
 
 
@@ -131,27 +125,18 @@ You will never be locked-in or bricked-out.
 
 ## Caveats & Limitations
 
-- Speaker DAC and AMP power is provided by a remarkable [ESP32 board called "LOUDER PLUS"](https://github.com/sonocotta/esp32-audio-dock) by [Sonocotta](https://github.com/sonocotta). 
+- Speaker DAC and AMP power is provided by a remarkable ESP32 board called "LOUDER" by Sonocotta. Amplification is 3-4X the power of the "LOUD" board used in the previous project.  
 
-  - Special thanks to [Andriy](https://discord.com/invite/PtnaAaQMpS) for all the help and support in my endeavor. You've been a great person to team with
-
-- The board provides options to use both (or either) a USB-C adapter and an external power supply.  
-
-  - You do not need to use both at the same time.
-
-  - The USB-C connection limits the amplification power to 15W - roughly what most mobile phone adapters supply (USB-C at 5V, 2-3A).   I would encourage you to try this first - it is definitely louder than the V3 - even with just USB-C power.
-
-  - An option for an external power supply is listed in the parts table.  If you choose another product - do NOT exceed 12V DC and stay under 36W max - or you may fry the board, the speaker - or both.
+- The board provides options to use both (or either) a USB-C adapter and an external power supply.  To simplify DIY build time and provide thermal protection to the board, I have used only the USB-C connection to limit power to 15W. This is roughly what most mobile phone adapters supply  (USB-C at 5V, 2-3A).   *Using an external supply to play at volumes requiring more than 15W will cause the board to overheat.*
 
 - ***Speakers benefit from "run-in" time to loosen the driver suspension and improves audio quality over time.*** 
-
-  - *Speaker drivers are stiff when new and improve from use.*
-  - *You can actually notice the sound quality of speakers improve over time.*
-  - **You can damage speakers easily by playing them too LOUD too soon.**
-  - Use your speakers at least 50-100 hours at mid-range volumes (50% or lower in Music Assistant) before testing how loud they can go.
-
+  I really want to reiterate this.  
+  *Speaker drivers are stiff when new and improve from use.*
+  *You can actually notice the sound quality of speakers improve over time.* 
+  *You can also damage them more easily at this stage by playing them LOUDLY.* 
+  We recommend playing at a lower (under 50%) volume setting for at least 50-100 hours before testing how loud they can go. 
   
-
+  
 
 ---
 
@@ -165,21 +150,16 @@ Speakers are sold in pairs, but other parts are sold individually. Adjust quanti
 
 Links are for the actual products I purchased for building the POC.
 
-<br/>
+After posting the V2 build, many people asked for a US-based option to purchase the ESP32 boards. If that is still of interest, please mention in the Reddit post and I will set up an option to purchase as a "kit"<br/><br/>
 
 
 | #    | Component                                                    | Qty        | Price | Notes                                                        |
 | ---- | ------------------------------------------------------------ | ---------- | ----- | ------------------------------------------------------------ |
-| 1    | [Riowois Passive Bookshelf Speakers with 4" woofer](https://www.amazon.com/dp/B0F995JR2P) | 2 cabinets | $67   | $38/speaker; <br/>GET THE 4" WOOFER - the other model is for V3 tutorial!!!<br/>need to buy outside the US? search for Riowois DS6800M |
-| 2    | [Sonocotta LOUDER PLUS ESP32](https://www.elecrow.com/louder-esp32-plus.html) - Sold by Elecrow <br/><br/>or<br/><br/> [Sonocotta LOUDER PLUS ESP32](https://lectronz.com/products/louder-esp32-plus) - Sold by Lectronz | 1          | $37   | ESP32 with integrated DAC & AMP; <br />- no Ethernet module; <br/>- optional $5 RPi case to protect the circuit board<br/> <br/>Elecrow based in China but delivers to US with much lower shipping & customs fees. <br/><br/>Lectronz is based in EU for purchasing directly from Andriy at Sonocotta <br/> <br/>There are currently no US based suppliers for these boards<br/><br/>**buy two if modifying both speakers.** |
+| 1    | [Riowois Passive Bookshelf Speakers](https://www.amazon.com/dp/B0CN8V8R6Q) | 2 cabinets | $39   | $20/speaker; <br/>need to buy outside the US? search for Riowois DS6500M |
+| 2    | [Sonocotta LOUDER ESP32 - Sold by Elecrow](https://tidd.ly/48waQqJ) <br/><br/>or<br/><br/> [Sonocotta LOUD ESP32 - Sold by Lectronz](https://lectronz.com/products/louder-esp32) | 1          | $32   | $24 + $8 from Elecrow<br/>ESP32 with integrated DAC & AMP; <br />- no Ethernet module; <br/>- optional $5 RPi case to protect the circuit board<br/>**buy two if modifying both speakers.** <br/> <br/>Elecrow based in China but delivers to US with much lower shipping & customs fees. <br/><br/>Lectronz is based in EU for purchasing directly from Andriy at Sonocotta <br/> <br/> no current US-based reseller, but I will sell in a kit if people would like this option |
 | 3    | [USB-C Panel Mount Cable](https://www.amazon.com/dp/B0DRVKR5F4) | 1          | $15   | improved version since v2; the threaded portion is hidden inside the cabinet along with the retaining nut<br/>**buy two if modifying both speakers.** |
-| 4    | [DC Power Connector](https://www.amazon.com/dp/B0B6FDYTQM)   | 3          | $10   | 5.5mm, 2.1mm pin female barrel connector is fairly standard for DC power supplies, usually with + polarity for the pin - be sure to verify |
-| 5    | Optional back plate                                          | 1          | $9    | If you have access to a 3D printer, print the 80mm square plate to replace the speaker wire connection plate and secure the new connectors in the back (STL file included).  <br/>Another option is to [order custom 3D printing from Elecrow](https://tidd.ly/4tkovc0) or similar DIY service company. They are as cheap as $2 plus shipping (which was $7 for me)<br/>Otherwise, you can just drill a small hole in the back of the cabinet for the cable.<br/><br /> **print two if modifying both speakers.** |
+| 4    | Optional back plate                                          | 1          | $2    | If you have access to a 3D printer, print the 1.5" square plate (STL file included).  <br/>Another option is to [order custom 3D printing from Elecrow](https://tidd.ly/4tkovc0) or similar DIY service company. They are as cheap as $2 for two, plus shipping<br/>Otherwise, you can just drill a small hole in the back of the cabinet for the cable.<br/><br /> **print two if modifying both speakers.** |
 |      |                                                              |            |       |                                                              |
-
-
-
-![ESP32 board connector cables and 3D-printed back plate laid out for the build](images/ESP32-connector-cables-and-new-back-plate.jpg)
 
 
 
@@ -211,109 +191,186 @@ Links are for the actual products I purchased for building the POC.
 
 ## Step-by-Step Build Guide
 
-### Step 1 — Remove the existing terminal plate on the back
+### Step 1 — Remove the existing plates on the back
 
-1. Remove the 4 screws from the wire connector plate ("speaker terminal plate")
+1. Each speaker has a bracket (for hanging on the wall) and a speaker wire connector plate with spring clips. It's easier to remove both for the assembly process and replace the hanging bracket when finished or seal the two screw holes with a black glue.
 
-2. Pull out the wire connector plate and cut the speaker wires as close to the connector tabs as possible.  In my speaker, these were white (positive) and black (negative).  You will strip the ends of these wires so keep them as long as possible.
+2. KEEP all the screws, you will likely need them again depending upon the options you choose.
 
-3. Keep the plate if you are not going to use the optional 3D printed plate.  You will need it to seal the speaker cabinet as the last step.
+3. Pull open the wire connector plate and cut the speaker wires as close to the connector tabs as possible.  In my speaker, these were red and black.  You will strip the ends of these wires in the next step, to attach to the ESP32 board.
 
 4. **DO NOT CUT other wires inside the cabinet!  **
-   **The tweeter and woofer drivers are also connected by wires - these need to remain connected!**
-
+   **The tweeter and woofer drivers are also connected by wires (white and black in my photos) - these need to remain connected!**
    
+   
+   
+   ![passive-speaker-back](images/passive-speaker-back.jpg)
+   *Closeup of the speaker back.  Note the hanging bracket and speaker wire connector panel.*
 
-   ![Closeup of the original speaker wire terminal plate on the back of the cabinet](images/closeup-of-speaker-terminal-plate.jpg)
-   *Closeup of the wire connector plate in the back of the speaker.*
 
 
-
-![Terminal plate removed showing the tweeter and woofer driver wires still connected inside the cabinet](images/terminal-plate-removed-with-driver-wires-connected.jpg)
-*Closeup of the wire connector plate before cutting the attached speaker wires. Cut right next to the solder connections.*
+![speaker-connector-panel-removed-wires-cut](images/speaker-connector-panel-removed-wires-cut.jpg)
+*Closeup of the speaker back with the wire connector plate removed before cutting the speaker wires.*
 
 
 
 ---
 
-### Step 2 — Install USB-C and power connectors
+### Step 2 — Remove the driver from the front
+
+1. Loosen screws and gently remove the larger front speaker driver.  You will need this large hole open to insert the ESP32 board inside the speaker cabinet. Note the straight "keyhole" slot cut at the top of the hole - this is where the speaker driver terminals and wire connections will pass through.
+
+   **BE VERY CAREFUL AS THIS DRIVER IS ALSO WIRED TO THE TWEETER - THESE CONNECTING WIRES ARE SHORT!**
+   
+   
+
+![speaker-driver-removed](images/speaker-driver-removed.jpg)
+*Closeup of speaker cabinet with the larger (woofer) driver removed. It has TWO sets of wires - the wires you just cut from the back plate AND wires that REMAIN connected to the tweeter still attached to the cabinet.*
+
+---
+
+### Step 3 — Attach main driver wire to the ESP32 board
+
+1. OPTIONAL - if you are using an RPi case for protection, attach the LOUDER ESP32 board to the base (as shown in the photo below).  I recommend not enclosing the board with the top half - only to provide extra air flow to keep the amplifier circuit cool at loud volumes.  
+
+2. Gently strip approx 1/4" on the ends of the red and black driver wires.
+
+3. Attach the wires to the speaker terminals of the LOUD ESP32 board, paying attention to the driver polarity. The red wire was "+" and should be connected to the outermost terminal on the ESP32 board.  One side of the board is for LEFT speaker, the other side of the board is for RIGHT speaker. Your choice on which side you choose. 
+   *ADVANTAGE to SQUEEZELITE firmware:  If you are using Squeezelite firmware, Music Assistant will let you change whether it streams LEFT, RIGHT or MONO to the board - in which case it does not matter which side you choose. SendSpin offers options to only stream STEREO or MONO.*
+   
+   
+
+![speaker-driver-connected-ESP32-audio-controller](images/speaker-driver-connected-ESP32-audio-controller.jpg)
+*Connecting the main driver wires to one channel of the LOUDER ESP32 circuit board.*
+
+
+
+---
+
+### Step 4 — Install USB-C cable connector
 
 1. TWO OPTIONS:
 
-   **ONE** -- If you have access to a 3D printer, you can print the 80mm square plate with holes that fit the USB-C cable and DC power connector as shown in the photo shown below. This plate is the same size and shape as the speaker connector plate you just removed. An STL file has been provided for this part. 
+   ONE -- If you have access to a 3D printer, you can print the 42mm square plate with a hole that fits the USB-C cable as shown in the photo shown below. This plate is the same size and shape as the speaker connector plate you removed. An STL file has been provided for this part. It's small, requires very little filament and takes only minutes to print.
 
-   Insert the threaded USB-C connector inside the hole of the plate, securing in place with the plastic nut. Insert the USB-C cable into the ESP32 board.
+   Insert the threaded USB-C connector inside the hole of the plate, securing in place with the plastic nut.
 
-   Insert the threaded DC power connector inside the hole of the plate, securing in place with the metal nut. Connect the red and black wires to the ESP32 board as shown in the photo. The connection polarity is also printed on the back of the ESP32 board for reference.
+   *RECOMMENDED - WAIT before re-attaching the plate to the back of the speaker (using same screws that held the wire connector plate in place).  You will want the wiggle room in the cable later, to plug it into the ESP32 board while inside the cabinet.* 
 
-   **OR**
+   NOTE - the photo shows a 90 degree "right angle" USB-C connector I used in the POC.  I do not recommend this option - I thought the right angle would make it easier to loop the cable inside the cabinet, but it made the connecting the cable to the ESP32 more difficult. For this reason, the parts table provides a link to a cable that is NOT right angle connector. 
 
-   **TWO** -- you can drill a 5/8" hole in the back of the speaker cabinet or the existing plate. I did not attempt this, but one of our readers and contributors drilled a hole into the original wire connector plate.  [See the photo here.](https://github.com/HouseWaves/home-assistant-audio-speaker-v3/issues/2#issuecomment-4635195475)
+   OR
    
-   OPTIONAL - if you decide to drill the original connector plate - you could power two speakers on one ESP32 board. Another reader/contributor connected the wire terminals to the LEFT side of the ESP32 board.  By connecting the two speakers together with speaker wire, he now has a stereo pair - one speaker has the ESP32 board inside and the other is connected using the speaker wire - both powered by a single board.
+   TWO -- you can drill a 5/8" hole in the back of the cabinet. I did not attempt this, but would suggest placing this hole in one of the upper corners, near the plastic port. The reason is to keep the bottom section open for the ESP32 board, and to provide enough space inside the cabinet for the USB-C cable to loop downwards.
+   
+   Insert the threaded USB-C connector into the speaker cabinet, through the drilled hole, securing in place with the plastic nut on the back of the speaker cabinet.
    
    
 
-![Assembled LOUDER PLUS ESP32 controller board mounted to the 3D-printed back plate with USB-C and DC connectors](images/the-assembled-controller-board-and-back-plate.jpg)
+![speaker-printed-back-plate-USB-C-cable](images/speaker-printed-back-plate-USB-C-cable.jpg)
 *Closeup of the USB-C connector cable and the 3D printed plate that replaces the original speaker wire plate.*
 
 
 
 ---
 
-### Step 3 — Attach speaker driver wires to the ESP32 board
+### Step 5 — Flash the ESP32 controller with Squeezelite firmware
 
-1. OPTIONAL - if you are using an RPi case for protection, attach the LOUDER PLUS ESP32 board to the base of the RPi case (as shown in the photo below).  I recommend not enclosing the board with the top half; this allows air flow to keep the ESP32 amplifier cool at loud volumes.  
+This project uses **Squeezelite-ESP32** firmware for seamless Home Assistant integration via Music Assistant. Squeezelite is an open source audio player that streams directly to Music Assistant without requiring ESPHome or YAML configuration.
 
-2. Gently strip approx 1/4" on the ends of the white and black driver wires.
+NOTE - **Sonocotta controllers are also compatible with ESPHome for SendSpin** (Yay!!) and SnapCast.  You may use any of them. There are matrices that discuss the pros and cons of each option. [This is a good starting point to review.](https://sonocotta.com/loud-esp32/) 
 
-3. Attach the wires to the speaker terminals of the board, paying attention to the driver polarity. The white wire was "+" and should be connected to the outermost terminal on the ESP32 board.  The connectors near the corner are for the RIGHT channel. You can choose either LEFT or RIGHT - as the Music Assistant will let you change whether it streams LEFT, RIGHT or MONO to the board -  so it does not matter which side you choose. 
-   OPTIONALLY, you may also wire for PBTL, a slightly advanced topic that will require ESPHome/SendSpin and some additional coding changes. [You can find more information about the advantages and changes needed here](https://github.com/sonocotta/esp32-audio-dock#louder-tas5805m-dac)
+We have been actively testing SendSpin and working with their development team to optimize use with ESP32 clients.  They have provided an updated YAML configuration file with updated settings that improve playback (reduce stuttering).  Sonocotta will be updating this file in their repository soon (as of May 1, 2026).  
 
-   
+Also note - you are able to flash and reflash the ESP32 board with any of the available firmware options at any time. *Some reflashing operations require physical access to the board (to press the reset button)!*
 
-![Connecting the speaker driver wires to the RIGHT channel terminals of the LOUDER PLUS ESP32 board](images/connecting-driver-wires-to-LOUDER-PLUS-ESP32.jpg)
-*Connecting the speaker driver wires to one (RIGHT) channel of the LOUDER PLUS ESP32 circuit board.*
+1. Connect a USB-C cable to the ESP32 board and your pc or laptop 
+     *Pro-tip: Connect your cable from the PC - to the USB-C extension cable in the cabinet - and that cable into the ESP32 (daisy-chain for testing).  This gives you an opportunity to ensure the new speaker cable works for data as well as power.  It's rare you will get a dud cable, but it can happen. See the photo in STEP 7.*
+
+2. Open the web-based firmware installer: https://sonocotta.github.io/esp32-audio-dock/
+
+3. Scroll to the section for **Louder-ESP32 Boards**, click on the box labeled **16-bit (Standard Quality)**
+   (note the readme link at the top of the page, for why to use 16-bit vs 32-bit)
+
+   ![squeezelite-speaker-esp32-firmware-install-louder-board](images/squeezelite-speaker-esp32-firmware-install-louder-board.jpg)
+
+4. Select option to **Install Louder-ESP32-16Bit.** Follow the prompt to **Install** and wait 2-3 minutes as it proceeds
+
+   ![squeezelite-speaker-esp32-device-dashboard-firmware-flash](images/squeezelite-speaker-esp32-device-dashboard-firmware-flash.jpg)
+
+5. After firmware installs, return to the menu above, 
+
+   a. select **Logs & Console**
+
+   b. select **download the log** to your laptop (handy - but not necessary - to have for review later)
+
+   c. keep the log open for next step - you can see what IP address it acquires which you may want later
+
+6. Using a mobile device (phone, tablet, etc.), 
+
+   a. connect your mobile device to the **board's Wi-Fi SSID: louder-esp32 and password: squeezelite**
+
+   b. Newer devices will automatically open a captive network window with the screen below.  If this does not happen, open a browser and enter: https://192.168.4.1 
+
+   c. Select your home Wi-Fi (2.4GHz only), enter your home Wi-Fi password, select **Join**
+
+   d. Wait until the dialog box shows your device has connected. Then click on the **Exit Recovery** button near the bottom of the page. (**this is important to "Exit Recovery" instead of reboot.**  Recovery mode is - for lack of a better analogy - *similar to booting in safe mode,* allowing you to restart and configure options for connecting to you home wifi, etc. when you want to start over. You want to exit this mode before using the device in Home Assistant)
+
+
+![squeezelite-captive-wifi-configuration-menu](images/squeezelite-captive-wifi-configuration-menu.jpg)
+
+---
+
+### Step 7 — Test Before Closing Up
+
+1. With your speaker still connected by USB-C cable to your laptop, try connecting your mobile device using Bluetooth to test the audio.
+
+4. Then test with Home Assistant / Music Assistant
+
+   a. ENSURE you have Squeezelite already installed as a Player Provider in Music Assistant.
+
+   b. Go to Player Settings in Music Assistant
+
+   c. Confirm the loud-esp32 Squeezelite player appears
+
+   d. Stream a song or play a TTS notification to confirm audio output
+
+   e. Test by changing volume, pausing, and resuming to verify full media player control
 
 
 
-### Step 4 — Flash the ESP32 controller 
-
-You have several options for firmware, including ESPHome with SendSpin or Snapcast, Squeezelite, custom and [even using AirPlay 2](https://sonocotta.com/esparagus-with-airplay-2/). You may use any of them. 
-
-There are matrices that discuss the pros and cons of each option. [This is a good starting point to review.](https://sonocotta.com/loud-esp32/) 
-
-I have found both Squeezelite and now SendSpin, to be very good options for quickly and easily connecting devices to Home Assistant (Music Assistant will auto-discover either one). The process to help you install either Squeezelite or SendSpin are included in Readme docs linked below.
-
-1 - [Install Squeezelite Firmware](README-Firmware-Flash-Squeezelite.md)
-
-2 - [Install SendSpin Firmware](README-Firmware-Flash-SendSpin.md)
+![speaker-connected-flashing-firmware-testing](images/speaker-connected-flashing-firmware-testing.jpg)
+*USB-C connector cable connected to ESP32 for testing with Home Assistant, BEFORE final assembly.*
 
 
 
 ---
 
-### Step 5 — Test before closing up
+### Step 8 — Final Assembly
 
-I recommend checking the board has been discovered by Music Assistant and streams music before closing it up. 
+1. **You will need to disconnect the USB-C cable from the ESP32 board to slide it inside the cabinet**.
 
+2. Carefully slide the ESP32 board inside the front driver hole, with the green speaker terminals going in first. If you are using a Raspberry Pi case for the bottom, it will barely fit vertically using the keyhole for extra space.
 
+3. Tilt the ESP32 up as you slide it inside, allowing you to rotate the board sideways INSIDE THE CABINET (see photo below), BEFORE reattaching the USB-C plug back into the ESP32.
 
----
+4. NOTE - it's a tight fit, so the driver wire needs to bend at an angle. The USB-C cable will need to curl around along the base of the cabinet - under the driver hole.  The added tension will help hold the ESP32 board in place against the back wall. You **may** want to use a piece of double-sided tape to hold the case against the wall.  Personally, I choose not to do this - as it will be very difficult to remove the board should you ever desire to do so.
 
-### Step 6 — Final Assembly
+5. Carefully slide the speaker driver back into the cabinet.
+   Avoid tugging or twisting any of the connected wires
+   Align the speaker wire connections and wires at the top of the hole - it must slide through the extra "keyhole" slot at the top.
 
-1. Carefully slide the ESP32 board inside the connector plate hole. If you insert the speaker wires/connections in first, you should be able to carefully rotate the board as you slide it through the hole - this will allow you to keep the USB-C cable connected to the ESP32  (it's tricky to reconnect it inside the cabinet.)
+6. Fasten the driver to the front using the existing screws and replace the front grille.
 
-2. Continue to slide the board towards the back of the cabinet. OPTIONALLY, you may want to place 1-2 pieces of double-sided foam tape under the RPi case to attach it to the bottom of the speaker cabinet. This will both hold it in place and keep the speaker vibrations at loud volumes from vibrating/rattling the case and board.
-
-3. Insert your new connector plate (or the old wire connector plate if using that one) and replace the screws.
    
-   
-   
-   ![Rear view of the finished HouseWaves-Three Wi-Fi bookshelf speaker with new connector plate installed](images/housewaves-three-rear-view-internal-wi-fi-bookshelf-speaker.jpg)
-   
-   *Closeup of the back of the speaker with the new printed plate and connectors in place.*
+
+   ![home-assistant-audio-speaker-cabinet-modified-ESP32](images/home-assistant-audio-speaker-cabinet-modified-ESP32.jpg)
+   *ESP32 board (and RPi case bottom) inside the cabinet, placed against the side wall to provide space for the woofer driver. The USB-C cable loops along the bottom of the cabinet - under the speaker hole. Once connected to the ESP32, it pushes against the board to hold it in place.*
+
+
+
+![passive-speaker-front](images/passive-speaker-front.jpg)
+*Woofer driver reattached to the front using screws and ready for reattaching the front grille.*
 
 
 
@@ -321,29 +378,37 @@ I recommend checking the board has been discovered by Music Assistant and stream
 
 ## What's Next
 
-This is **Build #5** in a planned series of passive-to-active speaker conversions for multi-room audio with Home Assistant. 
+This is **Build #3** in a planned series of passive-to-active speaker conversions using ESP32 for multi-room audio using Music Assistant. 
+
+**Build #4** - A [step-by-step installation guide to install ESPHome firmware](https://github.com/HouseWaves/home-assistant-audio-speaker-v2/blob/main/README%20-%20ESPHome%20with%20SendSpin%20Firmware.md) for SendSpin was added to the V2 DIY guide last week. You can use this same guide as only one step changes - that is the YAML configuration file you need to copy/edit/paste. Instead of selecting the SendSpin YAML file in the LOUD subdirectory, you will need the similar file from the LOUDER subdirectory.
+I will update this repo soon with the explicit directions and locations on the file needed, for those who would prefer to wait.
+
+**Build #5** was just completed this weekend (aka HouseWaves-Three).
+I will pre-release a limited quantity of assembled HW3 speakers at [GetHouseWaves.com](https://gethousewaves.com/) before the end of May and release the DIY guide for it, as soon as I have some free time to create it. (probably end of May, possibly at the start of June.)
 
 
 
-| Build | Speaker                                                      | Status        |
-| ----- | ------------------------------------------------------------ | ------------- |
-| #1    | HouseWaves POC -  Tozzi One High Fidelity Speaker Kit for Home Assistant | ✅ Complete    |
-| #2    | HouseWaves-One: Low-cost (sub $50) single driver speaker     | ✅ Complete    |
-| #3    | HouseWaves-Two: Mid-range, mid-cost (sub$100), dual driver speaker | ✅ Complete    |
-| #4    | SendSpin firmware for use with HW-One and HW-Two speakers    | ✅ Complete    |
-| #5    | HouseWaves-Three: Higher fidelity speaker option for Home Assistant | ✅ Complete    |
-| #6    | HouseWaves-Legacy: Connect any passive speaker to Home Assistant in 3 minutes | 🔜 July 2026   |
-| #7    | smart speaker option, compatible with Home Assistant Voice Preview | 🔜 August 2026 |
+| Build | Speaker                                                      | Status          |
+| ----- | ------------------------------------------------------------ | --------------- |
+| #1    | HouseWaves POC -  Tozzi One High Fidelity Speaker Kit for Home Assistant | ✅ Complete      |
+| #2    | HouseWaves-One: Low-cost (sub $50) single driver speaker     | ✅ Complete      |
+| #3    | HouseWaves-Two: Mid-range, mid-cost (sub$100), dual driver speaker | ✅ Complete      |
+| #4    | SendSpin firmware for use with HW-One and HW-Two speakers    | ✅ Complete      |
+| #5    | Higher-fidelity speaker, competitive option to Sonos for use with Home Assistant | 🔜 May/June 2026 |
+| #6    | smart speaker option, compatible with Home Assistant Voice Preview | 🔜 July 2026     |
 
 
 
-##### Preview of HouseWaves-Legacy
+**Planned future builds:**
 
-##### Connect ANY old (or new) passive speakers to Home Assistant in three minutes.
-
-![HouseWaves-Legacy proof-of-concept: passive speaker before and after conversion for Home Assistant](images/HouseWaves-Legacy-POC-before-and-after.jpg)
-
-
+- Smart Speaker
+- subwoofer - interested in hearing feedback on this.  I've had a couple of people request. I can put together a "quick-and-dirty" option or may wait until after I complete the smart speaker POC.
+- Bring-your-own-speaker
+  This will be a modular system to update your older passive speakers to Music Assistant.
+  I'm very excited about this new project/product.
+  Contact me if you have older legacy passive bookshelf speakers (e.g. Pioneer, Polk, JBL, Klipsch) and interested in piloting.
+- DAC & Amplifier upgrades, DSP options, higher power speakers (ESP32 Plus)
+- ESP32 with Power over Ethernet (PoE) for both powering and streaming to your in-wall and in-ceiling speakers.
 
 
 
@@ -385,5 +450,5 @@ I developed this speaker modification to be accessible to everyone for learning 
 
 ---
 
-***Build #2026-06-15 | HouseWaves, Copyright, 2026.***
+***Build #2026-05-07 | HouseWaves, Copyright, 2026.***
 
